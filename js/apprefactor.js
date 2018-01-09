@@ -44,17 +44,30 @@ let controller = {
 /********************************************************************/
 let view = {
 	init: () => {
-		this.nameColumns = $("tbody");
+		this.nameColumns = document.querySelector("tbody");
+		this.containerTbody = "";
 		controller.getAllStudents().forEach( student => {
-			containerTbody = `
+			containerTbody += `
 				<tr class="student">
 					<td class="name-col">${student.name}</td>
 					<td class="attend-col"><input type="checkbox"></td>
+					<td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <td class="missed-col">0</td>
 				</tr>
 			`;
 		});
 		
-		document.querySelector(".student").insertAdjacentHTML("afterbegin", containerTbody);
+		this.nameColumns.innerHTML = containerTbody;
 	}
 }
 
